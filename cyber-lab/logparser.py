@@ -14,7 +14,7 @@ def do_the_thing(file): #file has to be in the same dir as the python script
     print("| percent | count | ip |")
     for key in hashmap.keys():
         percent = hashmap[key]/total
-        print("|",percent, "|", hashmap[key], "|",  key, "|") #add time plus formatting
+        print("|",percent, "|", hashmap[key], "|",  key, "|")
 
 def getTotal(map):
     total = 0
