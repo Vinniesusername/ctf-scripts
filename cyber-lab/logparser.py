@@ -10,6 +10,19 @@ def do_the_thing(file): #file has to be in the same dir as the python script
                     hashmap[found] += 1
                 else:
                     hashmap[found] = 1
+    total = getTotal(hashmap)
+    print("| percent | count | ip |")
     for key in hashmap.keys():
-        print("ip ",key, "count ", hashmap[key]) #add time plus formatting
+        percent = hashmap[key]/total
+        print("|",percent, "|", hashmap[key], "|",  key, "|") #add time plus formatting
+
+def getTotal(map):
+    total = 0
+    for key in map.keys():
+        total += map[key]
+    return total
+
+
+
+
 do_the_thing("auth1.log")
