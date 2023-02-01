@@ -15,6 +15,7 @@ def do_the_thing(file): #file has to be in the same dir as the python script
     for key in hashmap.keys():
         percent = hashmap[key]/total
         print("|",percent, "|", hashmap[key], "|",  key, "|")
+    print("|    Total       | ", total, "      |             |")
 
 def getTotal(map):
     total = 0
