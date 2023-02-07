@@ -1,4 +1,4 @@
-import re
+import re, sys, getopt
 def dig_logs(logs):
     ips = {}
     for log in logs:
@@ -12,6 +12,7 @@ def dig_logs(logs):
                     else:
                         ips[found] = 1
     most = findMost()
+    return most
 
 def findMost(hashmap):
     biggest = - 1
@@ -28,3 +29,4 @@ def printMost(ip, logs):
             found = re.search(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", line)
             if found == ip:
                 print(line)
+
