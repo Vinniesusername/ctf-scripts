@@ -22,7 +22,7 @@ def parse_log(): #returns the most common ip in a log, and the number of times i
 
 print(parse_log())
 
-def parse_log2(): #returns the most common client making ftp requests
+def parse_log2(): #returns the most common client making ftp requests to a server in a log file
     file = "logs/log.txt"
     ipMap= {}
     with open(file) as log:
