@@ -1,32 +1,22 @@
-import re, sys, getopt
-def dig_logs(logs):
-    ips = {}
-    for log in logs:
-        with open(log) as file:
-            for line in file:
-                found = re.search(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", line)
-                if found is not None:
-                    found = found.group(0)
-                    if found in ips.keys():
-                        ips[found] += 1
-                    else:
-                        ips[found] = 1
-    most = findMost()
-    return most
-
-def findMost(hashmap):
-    biggest = - 1
-    ip = None
-    for x in hashmap.keys():
-        if hashmap[x] > biggest:
-            biggest = hashmap[x]
-            ip = x
-    return ip
-
-def printMost(ip, logs):
-    for log in logs:
+import re
+def dothething(): #returns the most common ip in a log, and the number of times it appears
+    file = "logs/log.txt"
+    ipMap= {}
+    with open(file) as log:
         for line in log:
-            found = re.search(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", line)
-            if found == ip:
-                print(line)
+            line = line.split()
+            ips = re.findall(r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}", line[4])
+            for ip in ips:
+                if ip in ipMap.keys():
+                    ipMap[ip] += 1
+                else:
+                    ipMap[ip] = 1
+    count = 0
+    ipString = ""
+    for ip in ipMap.keys():
+        if ipMap[ip] > count:
+            count = ipMap[ip]
+            ipString = ip
+    return (ipString, count)
 
+print(dothething())
