@@ -22,4 +22,18 @@ def parse_log(): #returns the LEAST common ip in a log (src or dest), and the nu
             print("dupe", ip)
     return (ipString, count)
 
-print(parse_log())
+def parse_log_dns(): #checks how many lines in the log connect to a given ip address (google dns server)
+    file = "logs/network.log"
+    count = 0
+    with open(file) as log:
+        for line in log:
+            ips = re.findall(r"8.8.8.8", line)
+            if ips:
+                count+=1
+    return count
+
+
+
+
+
+print(parse_log_dns())
