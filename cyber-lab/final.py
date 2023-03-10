@@ -35,5 +35,5 @@ def parse_log_dns(): #checks how many lines in the log connect to a given ip add
 
 
 
-
+print(parse_log())
 print(parse_log_dns())
